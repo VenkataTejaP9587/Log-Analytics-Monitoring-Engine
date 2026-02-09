@@ -1,0 +1,4 @@
+2025-02-08 10:15:23 INFO User login successful user_id=102 ip=192.168.1.10
+2025-02-08 10:16:01 WARN Password attempt failed user_id=103 ip=192.168.1.12
+2025-02-08 10:16:45 ERROR Database connection timeout service=auth-db
+2025-02-08 10:18:09 INFO User logout user_id=102
