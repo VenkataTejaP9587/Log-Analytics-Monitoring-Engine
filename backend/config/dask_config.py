@@ -17,6 +17,4 @@ def create_dask_client():
         memory_limit='1GB',  # Memory limit for each worker
         dashboard_address=":8790"
     )
-    client = Client(cluster)
-    print("Dashboard running at:", client.dashboard_link)
-    return client
+    return Client(cluster)
