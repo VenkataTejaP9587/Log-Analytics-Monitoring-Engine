@@ -7,8 +7,9 @@ def main():
     # Now you can use the client to submit tasks to the Dask cluster
     # For example, you can use client.submit() to run a function on the cluster
     # result = client.submit(your_function, your_arguments)
-    input("Press Enter to stop the cluster...")
+    input("Press Enter to stop the cluster...") # give this line in code
     # Don't forget to close the client when you're done
     client.close()  
 if __name__ == "__main__":
     main()
+    
