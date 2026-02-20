@@ -1,3 +1,4 @@
+from datetime import datetime
 import re
 LOG_PATTERN = re.compile(
     r"(?P<timestamp>[\d\-:\s]+)\s"
@@ -17,6 +18,7 @@ LOG_PATTERN = re.compile(
         "service": match.group("service"),
         "message": match.group("message")
     }    '''
+
 def parse_log_line(line):
     match = LOG_PATTERN.match(line)
     if not match:
