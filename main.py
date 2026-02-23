@@ -1,9 +1,9 @@
 from datetime import time
 
-from config.dask_config import start_dask
-from ingestion.loader import load_logs
-from processing.pipeline import build_pipeline
-from processing.pipeline import build_pipeline
+# import the actual client creator and correct loader path
+from backend.config.dask_config import create_dask_client
+from backend.injection.loader import load_logs
+# from processing.pipeline import build_pipeline
 
 
 # def main():
@@ -12,7 +12,7 @@ from processing.pipeline import build_pipeline
 #     print(client)
 #     print(f"Dashboard: {client.dashboard_link}")
     
-#     # df = load_logs("data/sample_log.log")
+#     # df = load_logs("backend/sample_data/log_data.log")
     
 #     start = time.time()
 #     # df = build_pipeline("data/sample_log.log")
@@ -29,10 +29,11 @@ from processing.pipeline import build_pipeline
 
 def main():
     print("Starting Log Processing...")
-    client = start_dask()
+    client = create_dask_client()
     print("Dask Started Successfully")
 
-    df = load_logs("data/sample_log.log")
+    # use the existing sample log under backend/sample_data
+    df = load_logs("backend/sample_data/log_data.log")
     print("Logs Loaded Successfully")
 
     print("\nFirst 5 Parsed Logs:")
