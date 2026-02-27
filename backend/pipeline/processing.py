@@ -34,4 +34,5 @@ def process_pipeline(file_path):
         "message" : "string",
     }
     df = parsed.to_dataframe(meta=meta_data)
+    df['timestamp'] = dd.to_datetime(df['timestamp'], errors='coerce')  # Convert to datetime, coerce errors to NaT
     return df

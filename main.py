@@ -1,10 +1,10 @@
 from datetime import time
-
+import time
 # import the actual client creator and correct loader path
 from backend.config.dask_config import create_dask_client
 from backend.injection.loader import load_logs
 # from processing.pipeline import build_pipeline
-
+from backend.pipeline.processing import process_pipeline
 
 # def main():
 #     # Create a Dask client
@@ -31,17 +31,25 @@ def main():
     print("Starting Log Processing...")
     client = create_dask_client()
     print("Dask Started Successfully")
+    print(f"dashboard:{client.dashboard_link}")
+    start= time.time()
+    print("start time", start)
 
     # use the existing sample log under backend/sample_data
-    df = load_logs("backend/sample_data/log_data.log")
+    df = process_pipeline("backend/sample_data/log_data.log")
     print("Logs Loaded Successfully")
+    print(df.compute())
 
-    print("\nFirst 5 Parsed Logs:")
-    print(df.head())
+
+   # print("\nFirst 5 Parsed Logs:")
+    #print(df.head())
 
     print("\nLog Count by Level:")
     result = df.count().compute()
     print(result)
+
+    end = time.time()
+    print("end time", end)
 
     client.close()
     print("\nProcessing Finished Successfully!")
