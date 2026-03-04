@@ -7,16 +7,6 @@
 #why objects?
 #raw log data are strings intially ,which are in text files, using objects it is safer browser for better understanding
 
-
-# example
-# meta_data = {
-#     # pandas/dask expects a valid dtype; use datetime64 for timestamp
-#     "timestamp": "datetime64[ns]", 
-#     "level" : "string", 
-#     "service" : "string", 
-#     "message" : "string",
-# }
-
 import dask.dataframe as dd
 from backend.injection.parser import parse_log_line
 from backend.injection.loader import load_logs
