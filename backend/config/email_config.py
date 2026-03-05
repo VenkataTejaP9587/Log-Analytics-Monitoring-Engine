@@ -35,7 +35,7 @@ def send_email(sender_email, receiver_email, password):
 send_email(
     sender_email="venkatatejapatnam@gmail.com",
     receiver_email="tejzzz09@gmail.com",
-    password="hpem zseg hnba ccls"
+    password=""
 )
 #what is port number: port number that tells to the computer which server  or application should recive  the data .
 #example: buliding address  -->IP address {system} 
